@@ -15,14 +15,16 @@ class Heroes extends Component {
   }
   addActor(){
     let people = this.state.heroes.slice();
+    const addingName = this.state.addingName;
     people.push(<Card name={this.state.addingName} 
       index={people.length + 1} 
       key={this.state.addingName} 
-      onClick={() => this.removeActor(this.state.addingName)} />);
+      onClick={() => this.removeActor(addingName)} />);
     this.setState({
       heroes: people,
       addingName: '',
-    })
+    });
+    console.log(people);
   }
   grabName(e) {        
     const value = e.target.value;
